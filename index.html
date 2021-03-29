@@ -6,6 +6,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="styles.css">
         <title>HTML/CSS</title>
+
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+
     </head>
     <body>
         <div class="container">
@@ -40,16 +70,46 @@
                     <img src="./images/cart.jpg" height="35px" width="35px" alt="cart">
                 </div> 
             </header>
-            <div class="banner">
-                <nav>
-
-                </nav>
-                <div class="carousel">
-
-                </div>
-            </div>
             <main>
-
+                <nav>
+                    <ul>    
+                        <li><a style="color: #4a84bc;" href="#">All Departments</a></li>
+                        <li><a style="color: #c84851;" href="#">Strecth your tax refund</a></li>
+                        <li><a style="color: #4a84bc;" href="#">My local store</a></li>
+                        <li><a style="color: #4a84bc ;" href="#">Pick it up TODAY</a></li>
+                        <li><a style="color: #4a84bc ;" href="#">Tips & Ideas</a></li>
+                        <li><a style="color: #6f9454;" href="#">Reorder your favorites</a></li>
+                    </ul>              
+                </nav>
+                
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <img src="./images/slide-1.png" width="1800px" alt="slide-1">
+                    </div>               
+                    <!-- <div class="mySlides fade">
+                        <img src="./images/slide-1.png" alt="slide-2">
+                    </div>   
+                    <div class="mySlides fade">
+                        <img src="./images/slide-1.png" alt="slide-3">
+                    </div>             
+                    <div class="mySlides fade">
+                        <img src="./images/slide-1.png" alt="slide-4">
+                    </div>                 
+                    <div class="mySlides fade">
+                        <img src="./images/slide-1.png" alt="slide-5">
+                    </div> -->
+                </div>
+                <div class="arrows">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>            
+                <div class="dots" style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
             </main>
         </div>
     </body>
